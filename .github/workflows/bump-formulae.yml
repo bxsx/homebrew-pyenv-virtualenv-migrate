@@ -1,0 +1,15 @@
+name: brew bump-formulae
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+jobs:
+  bump-formulae:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Update Homebrew formulae
+        uses: dawidd6/action-homebrew-bump-formula@v3
+        with:
+          tap: bxsx/homebrew-pyenv-virtualenv-migrate
+          livecheck: true
+          no_fork: true
+          token: ${{ secrets.token }}
